@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('RegisterController',
-    function ($scope, townsService, authService, notifyService) {
+    function ($scope, $location, townsService, authService, notifyService) {
         $scope.userData = {townId: null};
         $scope.towns = townsService.getTowns();
 
@@ -9,7 +9,7 @@ app.controller('RegisterController',
             authService.register(userData,
                 function success() {
                     notifyService.showInfo("You have successfully registered");
-                    $location('/login');
+                    $location.path('/');
                 },
                 function error(err) {
                     notifyService.showError('User registration failed', err);

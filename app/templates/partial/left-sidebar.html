@@ -1,0 +1,29 @@
+<div ng-if="authService.isAnonymous()" class="box">
+    <h2>Navigation</h2>
+    <ul class="sidebar-menu">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/login">Login</a></li>
+        <li><a href="#/register">Register</a></li>
+    </ul>
+</div>
+
+<div class="box" ng-if="authService.isAnonymous()">
+    <p>To publish a new ad, please login.</p>
+    <a href="#/login">Login</a>
+    <a href="#/register">Register</a>
+</div>
+
+<div ng-if="authService.isNormalUser()" class="box">
+    <h2>Navigation</h2>
+    <ul class="sidebar-menu">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/user/ads">My ads</a></li>
+        <li><a href="#/ads/">Publish Ad</a></li>
+        <li><a href="#/user/profile">Profile</a></li>
+        <li><a ng-click="logout()">Logout</a></li>
+    </ul>
+</div>
+
+<div ng-if="authService.isAdmin()" class="box">
+
+</div>

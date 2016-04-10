@@ -3,7 +3,7 @@
 app.controller('LoginController',
     function ($scope, $location, authService, notifyService) {
         $scope.login = function (userData) {
-            authService.login(userDaata,
+            authService.login(userData,
                 function success() {
                     notifyService.showInfo('Login successful');
                     $location.path('/');

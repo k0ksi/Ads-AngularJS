@@ -47,14 +47,8 @@ app.controller('UserAdsController',
 
         $scope.reloadUserAds();
 
-        $scope.$on('categorySelectionChanged', function (event, selectedCategoryId) {
-            $scope.adsParams.categoryId = selectedCategoryId;
-            $scope.adsParams.startPage = 1;
-            $scope.reloadUserAds();
-        });
-
-        $scope.$on('townSelectionChanged', function (event, selectedTownId) {
-            $scope.adsParams.townId = selectedTownId;
+        $scope.$on('statusSelectionChanged', function (event, selectedStatus) {
+            $scope.adsParams.status = selectedStatus;
             $scope.adsParams.startPage = 1;
             $scope.reloadUserAds();
         });

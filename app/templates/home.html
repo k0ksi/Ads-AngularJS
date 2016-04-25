@@ -4,7 +4,7 @@
 </pagination>
 
 <ul class="ads">
-    <li ng-repeat="ad in ads.ads" class="box">
+    <li ng-repeat="ad in ads.ads" class="box" data-id="{{ad.id}}">
         <h1>{{ad.title}}</h1>
         <div><strong>Date:</strong> {{ad.date | date: 'dd-MMM-yyyy'}}</div>
         <div ng-if="ad.imageDataUrl">

@@ -1,7 +1,16 @@
 'use strict';
 
 app.controller('RightSidebarController',
-    function ($scope, $rootScope, categoriesService, townsService) {
+    function ($scope, $route, $rootScope, $location, categoriesService, townsService) {
+        var path = $location.path();
+
+        $scope.selectedStatus = null;
+
+        $scope.statusClicked = function (clickedStatus) {
+            $scope.selectedStatus = clickedStatus;
+            $rootScope.$broadcast('statusSelectionChanged', clickedStatus);
+        };
+
         $scope.categories = categoriesService.getCategories();
         $scope.towns = townsService.getTowns();
 

@@ -50,10 +50,18 @@ app.config(function ($routeProvider) {
     );
 });
 
-app.run(function ($rootScope, $location, authService) {
+app.run(function ($rootScope, $route, $location, authService) {
     $rootScope.$on('$locationChangeStart', function (event) {
         if($location.path().indexOf("/user/") != -1 && !authService.isLoggedIn()) {
             $location.path('/');
+        }
+
+        if($location.path().indexOf('/user/ads') != -1) {
+            $rootScope.showStatuses = true;
+            $route.reload();
+        } else {
+            $rootScope.showStatuses = false;
+            $route.reload();
         }
     })
 });
